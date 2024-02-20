@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<h1 style="margin-top: 20px; 
+display:flex;
+justify-content:center;
+align-items:center;
+
+">Alışveriş Sepeti</h1>
+<div class="cizgi" style="display:flex;
+margin-bottom:30px;
+justify-content:center;
+align-items:center;">
+    <hr width="100px">
+</div>
+
+
+<div class="alert alert-danger container">Sepet sistemimiz şuanda kullanılamamaktadır. Satın alımlarınız için lütfen bizimle iletişime geçiniz
+    <p>
+        Kullanıma Açılma Tarihi : 28.09.2024
+    </p>
+</div>
+
+{% endblock %}

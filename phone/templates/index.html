@@ -1,0 +1,319 @@
+{% extends "base.html" %} {% load static %} {% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/swiper-bundle.min.css"
+/>
+{% endblock %} {% block content %}
+
+<h4 style="display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgb(108,105,203);
+color:white;
+height:40px;">AnaSayfa - Önerilenler</h4>
+<div class="urunler"  id="random-products-container">
+    {% for app in random_apples   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'apple_detay' apple_id=app.pk %}"><img src="{{ app.apple_image.url }}" alt="{{ app.apple_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{app.apple_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{app.apple_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<div class="urunler2">
+    {% for xi in random_xiaomis   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'xiaomi_detay' xiaomi_id=xi.pk %}"><img src="{{ xi.xiaomi_image.url }}" alt="{{ xi.xiaomi_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{xi.xiaomi_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{xi.xiaomi_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<div class="urunler3">
+    {% for op in random_oppo   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'oppo_detay' oppo_id=op.pk %}"><img src="{{ op.oppo_image.url }}" alt="{{ op.oppo_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{op.oppo_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{op.oppo_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for hw in random_huawei   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'huawei_detay' huawei_id=hw.pk %}"><img src="{{ hw.huawei_image.url }}" alt="{{ hw.huawei_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{hw.huawei_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{hw.huawei_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for kl in random_kulaklik   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'kulaklik_detay' kulaklik_id=kl.pk %}"><img src="{{ kl.kulaklik_image.url }}" alt="{{ kl.kulaklik_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{kl.kulaklik_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{kl.kulaklik_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for mc in random_macbook   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'macbook_detay' macbook_id=mc.pk %}"><img src="{{ mc.macbook_image.url }}" alt="{{ mc.macbook_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{mc.macbook_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{mc.macbook_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for rm in random_realme   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'realme_detay' realme_id=rm.pk %}"><img src="{{ rm.realme_image.url }}" alt="{{ rm.realme_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{rm.realme_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{rm.realme_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for sm in random_samsung   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'samsung_detay' samsung_id=sm.pk %}"><img src="{{ sm.samsung_image.url }}" alt="{{ sm.samsung_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{sm.samsung_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{sm.samsung_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+<div class="urunler2">
+    {% for ot in random_other   %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'other_detay' other_id=ot.pk %}"><img src="{{ ot.other_image.url }}" alt="{{ ot.other_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{ot.other_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{ot.other_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    .urunler {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        padding: 50px 200px 50px 200px;
+        gap: 10px;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+    .urunler2 {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        padding: 50px 200px 50px 200px;
+        gap: 10px;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+    .urunler3 , .urunler4 , .urunler5 , .urunler6 , .urunler7 , .urunler8 , .urunler9 {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        padding: 50px 200px 50px 200px;
+        gap: 10px;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+    .urun {
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.45);
+        height: 337px;
+        border-radius: 8px;
+    }
+    .urunimg {
+        height: 225px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .urunimg img {
+        border-radius: 8px 8px 0 0;
+        height: 225px;
+        width: 100%;
+    }
+    .urunimg:hover img {
+        transform: scale(1.1);
+        transition: all 0.2s ease;
+    }
+    .urunadi {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .urunadi a {
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto", sans-serif;
+    }
+    .urunfiyat {
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+    .urunfiyat a {
+        font-weight: 550;
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto", sans-serif;
+    }
+    .sepet {
+        box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.15);
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    .sepet button {
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 6px;
+        margin-left: 110px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+    }
+    .sepet a {
+        font-size: small;
+        color: white;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+    @media screen and (max-width: 1100px) {
+        .urunler {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 50px 100px 50px 100px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+        .urunler2 , .urunler3 , .urunler4 , .urunler5 , .urunler6 , .urunler7 , .urunler8 , .urunler9 {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 50px 100px 50px 100px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        .urunler {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            padding: 50px 20px 50px 20px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+        .urunler2 , .urunler3 , .urunler4 , .urunler5 , .urunler6 , .urunler7 , .urunler8 , .urunler9 {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            padding: 50px 20px 50px 20px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+        .sepet button {
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 6px;
+            margin-left: 50px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+</style>
+{% endblock %}

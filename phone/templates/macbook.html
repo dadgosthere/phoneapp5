@@ -1,0 +1,161 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="baslik">
+    <h1 style="color: white; font-size: 24px;">Macbook</h1>
+</div>
+
+<div class="urunler">
+    {% for mc in macbook2 %}
+    <div class="urun">
+        <div class="urunimg">
+            <a href="{% url 'macbook_detay' macbook_id=mc.pk %}"><img src="{{ mc.macbook_image.url }}" alt="{{ mc.macbook_name }}"></a>
+        </div>
+        <div class="urunadi">
+            <a href="#"> {{mc.macbook_name}} </a>
+        </div>
+        <div class="urunfiyat">
+            <a href="#"> {{mc.macbook_price}} TL </a>
+        </div>
+        <div class="sepet">
+            <button><a href="{% url 'sepet' %}">Sepete Ekle</a></button>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+
+
+
+<style>
+    .baslik {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -30px;
+        font-size: smaller;
+        font-family: "Roboto", sans-serif;
+        background-color: rgb(108,105,203);
+        font-weight: 550;
+        color: white;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    .urunler {
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        padding: 50px 200px 50px 200px;
+        gap: 10px;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+    .urun {
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.45);
+        height: 337px;
+        border-radius: 8px;
+    }
+    .urunimg {
+        height: 225px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .urunimg img {
+        height: 225px;
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+    .urunimg:hover img {
+        transform: scale(1.1);
+        transition: all 0.2s ease;
+    }
+    .urunadi {
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .urunadi a {
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto", sans-serif;
+    }
+    .urunfiyat {
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+    .urunfiyat a {
+        font-weight: 550;
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto", sans-serif;
+    }
+    .sepet {
+        box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.15);
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    .sepet button {
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 6px;
+        margin-left: 110px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+    }
+    .sepet a {
+        font-size: small;
+        color: white;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+    @media screen and (max-width: 1100px) {
+        .urunler {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 50px 100px 50px 100px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        .urunler {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            padding: 50px 20px 50px 20px;
+            gap: 10px;
+            row-gap: 30px;
+            column-gap: 30px;
+        }
+        .sepet button {
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 6px;
+            margin-left: 50px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+</style>
+
+
+
+{% endblock %}
+
+

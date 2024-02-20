@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="baslik">
+    <h1 style="color: white; font-size: 24px;">Apple</h1>
+</div>
+
+{% include 'partials/_applecard.html' %}
+
+
+
+
+<style>
+    
+    .baslik {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -30px;
+        font-size: smaller;
+        font-family: "Roboto", sans-serif;
+        background-color: rgb(108,105,203);
+        font-weight: 550;
+        color: white;
+    }
+</style>
+
+{% endblock %}

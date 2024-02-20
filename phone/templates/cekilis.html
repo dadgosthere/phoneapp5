@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<h1>Çekiliş Sonucu Sorgulama</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+    <div class="container" style="margin-top: 50px;">
+    <label for="kod"  class="form-label"></label>
+    <input class="form-control" style="width: 90%; display:inline-block;" type="text" name="kod" placeholder="Çekiliş Kodu">
+    <button class="btn btn-primary mb-3" type="submit" style="margin-top: 10px;">Kontrol Et</button>
+    </div>
+</form>
+{% if message2 %}
+    <div class="alert alert-success container" style="margin-top: 20px;">
+        <p>{{ message2 }}</p>
+    </div>
+{% else %}
+    {% if message %}
+        <div class="alert alert-danger container" style="margin-top: 20px;">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+{% endif %}
+
+
+
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+     h1 {
+        margin-top: 20px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-family: "Roboto", sans-serif;
+     }
+
+</style>
+{% endblock %}

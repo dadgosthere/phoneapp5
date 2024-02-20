@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<section class="sec">
+    <div class="urundetay">
+      <div class="urundetayimg">
+        <img src="{{samsung.samsung_image.url}}" alt="{{samsung.samsung_name}}" />
+      </div>
+      <div class="urundetayname">
+        <h1 style="font-weight: 500;">{{samsung.samsung_name}}</h1>
+        <hr/>
+  
+        <h3 style="font-weight: 550;">{{samsung.samsung_price}} ₺ </h3>
+  
+        <div class="sepet">
+          <button><a href="{% url 'sepet' %}"><i class="fa-solid fa-cart-plus"></i>Sepete Ekle</a></button>
+        </div>
+  
+        <div class="tablediv">
+          <table class="table table2">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2">Genel Özellikler</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dahili hafıza:</td>
+                <td>{{samsung.internal_memory}}</td>
+              </tr>
+              <tr>
+                <td>Ekran Boyut Aralığı</td>
+                <td>{{samsung.screen_size_range}}</td>
+              </tr>
+              <tr>
+                <td>Kamera Çözünürlüğü Aralığı</td>
+                <td>{{samsung.camera_resolution_range}}</td>
+              </tr>
+              <tr>
+                <td>Ekran Boyutu</td>
+                <td>{{samsung.screen_size}}</td>
+              </tr>
+              <tr>
+                <td>Garanti Tipi</td>
+                <td>{{samsung.warranty_type}}</td>
+              </tr>
+              <tr>
+                <td>Kablosuz Şarj</td>
+                <td>
+                  {% if samsung.wireless_charging %}
+                  var
+              {% else %}
+                  yok
+              {% endif %}
+                </td>
+              </tr>
+              <tr>
+                <td>Kamera Çözünürlüğü</td>
+                <td>{{samsung.camera_resolution}}</td>
+              </tr>
+              <tr>
+                <td>Ön (Selfie) Kamera</td>
+                <td>{{samsung.front_camera}}</td>
+              </tr>
+              <tr>
+                <td>Pil Gücü</td>
+                <td>{{samsung.battery_capacity}}</td>
+              </tr>
+              <tr>
+                <td>RAM Kapasitesi</td>
+                <td>{{samsung.ram_capacity}}</td>
+              </tr>
+              <tr>
+                <td>Yüz Tanıma</td>
+                <td> {% if samsung.face_recognition %}
+                  var
+              {% else %}
+                  yok
+              {% endif %}</td>
+              </tr>
+              <tr>
+                <td>Ön (Selfie) Kamera Aralığı</td>
+                <td>{{samsung.front_camera_range}}</td>
+              </tr>
+              <tr>
+                <td>Pil Gücü Aralığı</td>
+                <td>{{samsung.battery_capacity_range}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="aciklamalar">
+      <div class="aciklama" data-target="garanti">GARANTİ</div>
+      <div class="aciklama" data-target="degisim">DEĞİŞİM</div>
+      <div class="aciklama" data-target="iade">İADE</div>
+  
+  </div>
+  <div class="icerik" id="garanti-icerik">
+      Tüm ürünler aksi belirtilmediği takdirde üretici firmaların garantisi altındadır. Garanti koşullarının geçerli olabilmesi için kargo teslimatı esnasında ürünü mutlaka kontrol ediniz. Herhangi bir hasar gördüğünüzde tutanak tutturarak ürünü teslim almayınız. Ürün üzerinde yapılan değişiklikler,ürünün deforme olması ya da ürünün orijinal dizaynının bozulması garanti kapsamı dışındadır.
+  
+  </div>
+  
+  <div class="icerik" id="degisim-icerik" style="display: none;">
+      Sitemiz üzerinden satın aldığınız ürünün hatalı çıkması halinde teslimat tarihinden itibaren en geç 30 gün içerisinde sayfamızdaki online destek bölümünden bizimle iletişim kurmanız gerekmektedir. Bu bilgileri takiben kargo şirketi ile bize ulaştıracağınız hatalı ürün yenisi ile değiştirilecektir. Sipariş edilen ürün hatası müşteri kullanımından oluşmuşsa veya 30 günlük süre içerisinde ürün kullanılmışsa ürünün iade ve değişimi yapılmaz. Müşterinin talebi doğrultusunda üzerinde işlem, değişiklik, kişiselleştirme yapılan ürünlerin değişim ve iadelerinde mağaza ücret üzerinde kesinti yapma hakkına sahiptir (yüzük ölçüsü , model değişimi vb.). Ürün iadesi ve değiştirme şartları olarak, 4077 sayılı Tüketicinin Korunması Hakkında Kanun gereği uygulamalar esastır.
+  
+  </div>
+  
+  <div class="icerik" id="iade-icerik" style="display: none;">
+      Sitemiz üzerinden satın aldığınız ürünün hatalı çıkması halinde teslimat tarihinden itibaren en geç 14 gün içerisinde sayfamızdaki online destek bölümünden bizimle iletişim kurmanız gerekmektedir. Bu bilgileri takiben kargo şirketi ile bize ulaştıracağınız ürün tarafımıza ulaştığında kontrol edildikten sonra uygun bulunması durumunda iadeniz sağlanacaktır. Sipariş edilen ürün hatası müşteri kullanımından oluşmuşsa veya 14 günlük süre içerisinde ürün kullanılmışsa ürünün iade ve değişimi yapılmaz. Ürün iadesi ve değiştirme şartları olarak, 4077 sayılı Tüketicinin Korunması Hakkında Kanun gereği uygulamalar esastır.
+  
+  </div>
+  </section>
+  
+  
+  
+  
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+    .aciklamalar {
+      display: flex;
+  }
+  * {
+      font-family: "Roboto", sans-serif;
+  }
+  .sepet {
+      width: 100%;
+  }
+  .sepet button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
+      border: none;
+      background-color: black;
+      margin-bottom: 30px;
+      margin-top: 20px;
+  }
+  .sepet a {
+      color: white;
+      text-decoration: none;
+  }
+  .sepet i {
+      margin-right: 5px;
+  }
+  .icerik{
+      font-family: "Roboto", sans-serif;
+      border: 1px solid black;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+  }
+  .aciklama {
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+  }
+    .sec {
+      padding: 0px 200px 50px 200px;
+    }
+    .urundetay {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .urundetayimg img {
+      width: 500px;
+    }
+    .urundetayname h1 {
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: 550;
+    }
+    @media screen and (max-width: 1100px) {
+      .urundetay {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .sec {
+          padding: 0px 100px 50px 100px;
+        }
+    }
+    @media screen and (max-width: 600px) {
+      .urundetay {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .sec {
+          padding: 0px 20px 50px 20px;
+        }
+        .sepet button {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          border-radius: 10px;
+          color: white;
+          border: none;
+          background-color: black;
+          margin-bottom: 30px;
+          margin-top: 20px;
+      }
+      .table2 {
+          width: 100%;
+          font-size: smaller;
+      }
+      .urundetayimg img {
+          width: 300px;
+        }
+    }
+  </style>
+  
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var aciklamalar = document.querySelectorAll(".aciklama");
+          var ilkIcerik = document.getElementById("garanti-icerik");
+          ilkIcerik.style.display = "block"; // İlk içeriği görünür yap
+      
+          aciklamalar.forEach(function(aciklama) {
+              aciklama.addEventListener("click", function() {
+                  var targetId = this.getAttribute("data-target");
+                  var icerikler = document.querySelectorAll(".icerik");
+                  icerikler.forEach(function(icerik) {
+                      icerik.style.display = "none";
+                  });
+                  document.getElementById(targetId + "-icerik").style.display = "block";
+              });
+          });
+      });
+      
+  </script>
+  
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% load static %} {% block cssfiles %}
+<link rel="stylesheet" href="{% static 'phoneapp/css/style.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="baslik">
+  <h1 style="color: white; font-size: 24px">Bize Ulaşın</h1>
+</div>
+
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <h1 class="mb-3">Bize Ulaşın</h1>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="your-name" class="form-label">Adınız</label>
+              <input type="text" class="form-control" id="your-name" name="your-name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-surname" class="form-label">Soyadınız</label>
+              <input type="text" class="form-control" id="your-surname" name="your-surname" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="your-email" name="your-email" required>
+            </div>
+            <div class="col-md-6">
+              <label for="your-subject" class="form-label">Konu</label>
+              <input type="text" class="form-control" id="your-subject" name="your-subject">
+            </div>
+            <div class="col-12">
+              <label for="your-message" class="form-label">Mesajınız</label>
+              <textarea class="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-dark w-100 fw-bold" >Gönder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<style>
+  .baslik {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    font-size: smaller;
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(108, 105, 203);
+    font-weight: 550;
+    color: white;
+  }
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+  * {
+    font-family: "Roboto", sans-serif;
+  }
+  .ic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .tes {
+    width: 700px;
+    margin-top: 50px;
+  }
+
+  @media screen and (max-width: 850px) {
+    .tes {
+      width: 330px;
+      margin-top: 50px;
+    }
+  }
+</style>
+{% endblock %}
