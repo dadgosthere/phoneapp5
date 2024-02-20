@@ -1,0 +1,372 @@
+{% load static %}
+<nav>
+    <div class="navust">
+        <h4>Çekiliş sonuçları açıklanmıştır. <button><a href="{% url 'cekilis' %}">Sorgulamak için tıklayın</a></button></h4>
+    </div>
+    <div class="navmid">
+        <div class="navmidlogo">
+           <a href="{% url 'home' %}"> <img src="{% static 'img/photo-output.png' %}" alt="logo" width="100px "></a>
+        </div>
+        <div class="navmidara">
+            <input type="search" placeholder="Marka, Kategori, Ürün ara " id="ara" ><label for="ara"><i class="fa-solid fa-magnifying-glass"></i></label>
+        </div>
+        <div class="resmenu">
+            <input type="checkbox"  id="menu">
+            <label for="menu"><i class="fa-solid fa-bars"></i></label>
+            <div class="navmidbuttonlar">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-user"></i>Hesabım</a>
+                        <div class="altlist">
+                            <ul class="altlist2">
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'hesap' %}">{{ user.username }}</a></li>
+                                <li><a href="{% url 'logout' %}">Çıkış yap<i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}"><i class="fa-solid fa-arrow-right-to-bracket" style="margin-right: 10px;"></i>Giriş</a></li>
+                                <li><a href="{% url 'register' %}"><i class="fa-solid fa-address-card" style="margin-right: 10px;"></i>Kayıt ol</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa-solid fa-heart"></i>Favorilerim</a></li>
+                    <li><a href="{% url 'sepet' %}"><i class="fa-solid fa-cart-shopping"></i>Sepet</a></li>
+                </ul>
+            </div>
+            <div class="navalt">
+                <ul>
+                    <li><a href="{% url 'apple' %}">APPLE</a></li>
+                    <li><a href="{% url 'samsung' %}">SAMSUNG</a></li>
+                    <li><a href="{% url 'xiaomi' %}">XIOAMI</a></li>
+                    <li><a href="{% url 'oppo' %}">OPPO</a></li>
+                    <li><a href="{% url 'realme' %}">REALME</a></li>
+                    <li><a href="{% url 'huawei' %}">HUAWEI</a></li>
+                    <li><a href="{% url 'macbook' %}">MACBOOK</a></li>
+                    <li><a href="{% url 'other' %}">ŞARJ CİHAZI</a></li>
+                    <li><a href="{% url 'kulaklik' %}">KULAKLIK</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="navalt">
+        <ul>
+            <li><a href="#">APPLE</a></li>
+            <li><a href="#">SAMSUNG</a></li>
+            <li><a href="#">XIOAMI</a></li>
+            <li><a href="#">OPPO</a></li>
+            <li><a href="#">REALME</a></li>
+            <li><a href="#">HUAWEI</a></li>
+            <li><a href="#">MACBOOK</a></li>
+            <li><a href="#">ŞARJ CİHAZI</a></li>
+            <li><a href="#">KULAKLIK</a></li>
+        </ul>
+    </div> -->
+</nav>
+
+
+
+
+
+<!-- 
+<ul>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">logout</a></li>
+    <li><a href="#">welcome, {{ user.username }}</a></li>
+    {% else %}
+    <li><a href="{% url 'login' %}">login</a></li>
+    <li><a href="{% url 'register' %}">register</a></li>
+    {% endif %}
+
+
+</ul> -->
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    .navmidlogo {
+        margin-top: -30px;
+    }
+    .navust {
+        background-color: rgb(26,187,155);
+        width: 100%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+    }
+    .navust h4 {
+        font-family: "Roboto", sans-serif;
+        color: white;
+        font-size: 16px;
+        font-weight: 550;
+    }
+    .navust button {
+        border: none;
+        border-radius: 4px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .navust button a {
+        color: rgb(26,187,155);
+        text-decoration: none;
+        font-weight: 550;
+    }
+    .navmid {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 20px 200px 0 200px;
+    }
+    .navmidbuttonlar ul {
+        display: flex;
+        list-style-type: none;
+        font-family: "Roboto", sans-serif;
+        font-size: 13px;
+    }
+    .navmidbuttonlar ul li {
+        margin-right: 30px;
+    }
+    .navmidbuttonlar ul li a {
+        color: black;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+    .navmidbuttonlar i {
+        display: flex;
+        justify-content: center;
+    }
+    .navmid input {
+        width: 400px;
+        height: 35px;
+        border: none;
+        background-color: rgb(221, 220, 220);
+        border-radius: 6px;
+        padding: 5px;
+        font-size: 12px;
+    }
+    .navmidara i{
+        margin-left: 10px;
+        font-size: larger;
+    }
+    .navmid li:hover .altlist {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease;
+    }
+    .altlist {
+        position: absolute;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        flex-direction: column;
+        right: 352px;
+        top: 98px;
+        background-color: white;
+        border-radius: 7px;
+        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        z-index: 102;
+    }
+    .altlist i {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .altlist2 {
+        display: flex;
+        flex-direction: column;
+    }
+    .altlist2 li {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .resmenu input {
+        display: none;
+    }
+    .resmenu label {
+        display: none;
+    }
+    .resmenu {
+        font-size: larger;
+    }
+    .navalt ul {
+        list-style-type: none;
+    }
+    .navalt a {
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto", sans-serif;
+    }
+    .navalt {
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.55);
+    }
+    .navalt ul {
+        display: flex;
+        flex-direction: row;
+    }
+    .navalt ul li {
+        margin-left: 30px;
+        margin-right: 30px;
+       
+        padding: 2px;
+        border-radius: 10px;
+    }
+    .navalt a {
+        font-weight: 550;
+        font-size: 16px;
+    }
+    nav {
+        margin-bottom: 100px;
+    }
+    @media screen and (max-width: 1200px) {
+        .navmid input {
+            width: 300px;
+            height: 35px;
+            border: none;
+            background-color: rgb(221, 220, 220);
+            border-radius: 6px;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .navmid {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px 100px 0 100px;
+        }
+        .navust h4 {
+            font-family: "Roboto", sans-serif;
+            color: white;
+            font-size: 12px;
+            font-weight: 550;
+        }
+        .navust button {
+            border: none;
+            border-radius: 4px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        .navust button a {
+            color: rgb(26,187,155);
+            text-decoration: none;
+            font-weight: 550;
+        }
+        .navalt {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0px 0.5px 1px 0px rgba(0,0,0,0.55);
+        }
+        .navalt ul {
+            display: flex;
+            flex-direction: row;
+        }
+        .navalt ul li {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        .navalt a {
+            font-weight: 550;
+            font-size: 10px;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        nav {
+            margin-bottom: 50px;
+        }
+        .navmid {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px 25px 0 25px;
+        }
+        .altlist {
+            position: absolute;
+            display: flex;
+            visibility: hidden;
+            opacity: 0;
+            flex-direction: column;
+            right: 12px;
+            top: 68px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+        }
+        .resmenu label {
+            display: block;
+        }
+        .navmidara {
+            display: none;
+        }
+        .navmidbuttonlar {
+            display:  none ;
+            position: absolute;
+        }
+        .navmidbuttonlar ul {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .navmidbuttonlar ul li {
+            margin-top: 30px;
+            margin-right: 40px;
+        }
+        .navmidbuttonlar i {
+            display: flex;
+        }
+        .navalt {
+            position: absolute;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            left: 0;
+            top: 100px;
+            z-index: 100;
+            background-color: white;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .navalt ul {
+            flex-direction: column;
+        }
+        .navalt ul li{
+            list-style-type: none;
+            margin-top: 20px;
+        }
+        .navalt a {
+            text-decoration: none;
+            color: black;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            font-weight: 550;
+        }
+        .navmid input:checked ~ .navalt {
+            left: 0;
+            transition: all 0.3s ease;
+            opacity: 1;
+            visibility: visible;
+        }
+        .navmid input:checked ~ .navmidbuttonlar {
+            display: flex;
+            position: absolute;
+            justify-content: right;
+            right: 10px;
+            z-index: 101;
+            top: 120px;
+            flex-direction: column;
+        }
+    }
+</style>

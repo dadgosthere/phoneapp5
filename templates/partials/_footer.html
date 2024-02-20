@@ -1,0 +1,162 @@
+{% load static %}
+<footer>
+    <div class="footerdiv">
+        <div class="hakkimizda">
+            <h3>Hakkımızda</h3>
+            <ul>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="{% url 'teslimat' %}">Teslimat Koşulları</a></li>
+                <li><a href="{% url 'gizlilik' %}">Gizlilik ve Güvenlik</a></li>
+                <li><a href="{% url 'kullanım' %}">Kullanım Koşulları</a></li>
+                <li><a href="{% url 'iade' %}">İptal, İade ve Değişim</a></li>
+            </ul>
+        </div>
+        <div class="other">
+            <h3>Önemli Bilgiler</h3>
+            <ul>
+                <li><a href="{% url 'Iletisim' %}">İletişim</a></li>
+                <li><a href="#">Sıkça Sorulan Sorular</a></li>
+            </ul>
+        </div>
+        <div class="uye">
+            <h3>Bülten</h3>
+            <p>Hemen üye olarak indirim ve fırsatlardan haberdar olabilirsiniz.</p>
+            <form>
+                <input type="email" name="email" id="mail" placeholder="e-mail">
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+    </div>
+    <div class="alt">
+        <p>© 2024 Tüm hakları saklıdır.</p>
+        <img src="{% static 'img/images.png' %}" alt="">
+    </div>
+</footer>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    * {
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    li {
+        list-style-type: none;
+    }
+    .footerdiv {
+        color: white;
+        background-color: black;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-items: center;
+        padding-bottom: 50px;
+        list-style-type: circle;
+    }
+    .footerdiv li {
+        list-style-type: circle;
+    }
+    .alt {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-items: center;
+        color: white;
+        background-color: rgb(57, 57, 57);
+    }
+    .alt p {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .alt img {
+        width: 180px;
+        position: absolute;
+        right: 40px;
+        border-radius: 10px;
+    }
+    .hakkimizda {
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+    }
+    .hakkimizda a {
+        font-size: 14px;
+    }
+    .hakkimizda h3 {
+        font-size: 18px;
+        text-decoration: underline;
+    }
+    .other h3 {
+        font-size: 18px;
+        text-decoration: underline;
+    }
+    .other {
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+    }
+    .other a {
+        font-size: 14px;
+    }
+    .uye h3 {
+        font-size: 18px;
+        text-decoration: underline;
+    }
+    .uye {
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+    }
+    .uye p {
+        font-size: 14px;
+    }
+    .uye input {
+        border: none;
+        border-radius: 6px;
+    }
+    .uye button {
+        border: none;
+        border-radius: 6px;
+        background-color: rgb(190, 190, 190);
+        color: rgb(33, 33, 33);
+        font-weight: 550;
+    }
+    @media screen and (max-width: 900px) {
+        .footerdiv {
+            color: white;
+            background-color: black;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            justify-items: center;
+            padding-bottom: 50px;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .footerdiv {
+            color: white;
+            background-color: black;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            justify-items: left;
+            padding-bottom: 50px;
+            padding-left: 15px;
+        }
+        .alt p {
+            margin-top: 10px;
+            font-size: 10px;
+        }
+        .alt img {
+            width: 100px;
+            margin-top: 5px;
+            margin-right: -30px;
+            border-radius: 10px;
+        }
+    }
+    
+</style>
